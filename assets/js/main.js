@@ -32,6 +32,7 @@ const SITE = {
   hydrateLinks();
   setYear();
   revealOnScroll();
+  applyAccentCycle();
   initBeforeAfter();
   initYouTube();
 })();
@@ -53,7 +54,7 @@ function bindNav() {
   nav.addEventListener("click", (e) => {
     const a = e.target.closest("a");
     if (!a) return;
-    if (window.matchMedia("(max-width: 1140px)").matches) {
+    if (window.matchMedia("(max-width: 1240px)").matches) {
       body.setAttribute("data-nav-open", "false");
       toggle.setAttribute("aria-expanded", "false");
     }
@@ -142,6 +143,15 @@ function revealOnScroll() {
   items.forEach((el) => io.observe(el));
 }
 
+
+function applyAccentCycle() {
+  const accents = ["gold", "green", "blue", "red"];
+  const nodes = Array.from(document.querySelectorAll(".kicker[data-accent-cycle], .hairline, .eyebrow-mark[data-accent-cycle]"));
+  nodes.forEach((el, index) => {
+    if (el.dataset.accent) return;
+    el.dataset.accent = accents[index % accents.length];
+  });
+}
 function initBeforeAfter() {
   const components = Array.from(document.querySelectorAll("[data-ba]"));
   if (!components.length) return;
