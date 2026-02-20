@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://bernardmauco-create.github.io/Incidence/sitemap.xml
