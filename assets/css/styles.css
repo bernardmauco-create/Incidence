@@ -361,7 +361,7 @@ code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liber
   font-size: 15.5px;
   margin: 0 0 16px;
 }
-.hero__cta{ display:flex; gap: 12px; flex-wrap: wrap; margin: 18px 0 6px; }
+.hero__cta{ display:flex; gap: 12px; flex-wrap: wrap; margin: 18px 0 10px; }
 
 .hero__aside{
   align-self:start;
@@ -370,7 +370,9 @@ code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liber
   background: rgba(255,255,255,.84);
   border: 1px solid rgba(21,24,27,.12);
   border-radius: var(--radius);
-  padding: 12px;
+  padding: 10px;
+  max-width: 340px;
+  margin-left: auto;
   box-shadow: 0 1px 0 rgba(21,24,27,.02);
 }
 .hero-mini__title{
@@ -382,7 +384,7 @@ code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liber
   color: rgba(21,24,27,.72);
 }
 .hero-mini .muted{ margin: 8px 0 0; font-size: 12.5px; }
-.hero-mini .ba{ padding: 10px; border-radius: 18px; }
+.hero-mini .ba{ padding: 8px; border-radius: 16px; }
 .hero-mini .ba__range{ margin-top: 10px; }
 
 
@@ -417,7 +419,7 @@ code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liber
 .micro{ color: rgba(95,102,112,.92); font-size: 12.5px; margin: 10px 0 0; }
 
 .bullets{
-  margin: 14px 0 0;
+  margin: 24px 0 0;
   padding-left: 18px;
   color: rgba(21,24,27,.78);
 }
