@@ -42,15 +42,15 @@
 
   <header class="site-header" data-header>
     <div class="site-header__inner">
-      <div class="brand">
-        <a class="brand__mark" href="index.html" aria-label="Accueil Incidence (Patrimoine Photos)">
-          <img class="brand__logo" src="assets/img/logo-incidence.jpg" alt="Logo Incidence" width="34" height="34" decoding="async">
-          <span class="brand__text">
-            <span class="brand__title">Incidence</span>
-            <span class="brand__sub">Patrimoine Photos • Restauration & numérisation d’archives</span>
-          </span>
-        </a>
-      </div>
+      <a class="brand" href="index.html" aria-label="Accueil Incidence (Patrimoine Photos)">
+        <span class="brand__logo-wrap" aria-hidden="true">
+          <img class="brand__logo" src="assets/img/logo-incidence.jpg" alt="" width="40" height="40" decoding="async">
+        </span>
+        <span class="brand__text">
+          <span class="brand__title">Incidence</span>
+          <span class="brand__sub">Patrimoine Photos • Restauration &amp; numérisation d’archives</span>
+        </span>
+      </a>
 
       <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav">
         <span class="sr-only">Ouvrir le menu</span>
@@ -58,10 +58,10 @@
       </button>
 
       <nav id="nav" class="nav" aria-label="Navigation principale" data-nav>
-        <div class="nav__group">
+        <div class="nav__main">
           <a class="nav__link" href="index.html">Accueil</a>
           <a class="nav__link" href="prestations.html">Prestations</a>
-          <a class="nav__link" href="avant-apres.html">Avant / Après</a>
+          <a class="nav__link" href="avant-apres.html">Avant/Après</a>
           <a class="nav__link" href="methode.html">Méthode</a>
           <a class="nav__link" href="articles/index.html">Articles</a>
           <a class="nav__link" href="youtube.html">YouTube</a>
@@ -70,12 +70,14 @@
 
         <div class="nav__divider" role="presentation"></div>
 
-        <div class="nav__group">
+        <div class="nav__meta">
           <a class="nav__link nav__link--ext" href="https://patrimoine-photos.myportfolio.com/" target="_blank" rel="noopener">Galerie</a>
           <a class="nav__link nav__link--ext" href="#" data-youtube-link target="_blank" rel="noopener">Chaîne</a>
-          <a class="btn btn--cta" href="contact.html">Demander un devis</a>
+          <a class="btn btn--cta nav__cta" href="contact.html">Demander un devis</a>
         </div>
       </nav>
+
+      <a class="btn btn--cta header-cta" href="contact.html">Demander un devis</a>
     </div>
   </header>
 
@@ -112,8 +114,11 @@
         </article>
 
         <article class="card">
-          <h3>Négatifs (souples)</h3>
-          <p>Formats variés, émulsions différentes. Numérisation optimisée + correction progressive.</p>
+          \1
+          <div class=\"thumb thumb--sm\">
+            <img src=\"assets/img/avant-apres/negatif-souple-avant.jpg\" alt=\"Aperçu : négatif souple avant restauration\" width=\"240\" height=\"150\" loading=\"lazy\" decoding=\"async\">
+          </div>
+          \2>Formats variés, émulsions différentes. Numérisation optimisée + correction progressive.</p>
           <ul class="mini-list">
             <li>Rayures / poussières</li>
             <li>Contraste / densité</li>
@@ -123,8 +128,11 @@
         </article>
 
         <article class="card">
-          <h3>Tirages papier anciens</h3>
-          <p>Quand les négatifs sont absents, le tirage papier devient la source. Amélioration prudente et fidèle.</p>
+          \1
+          <div class=\"thumb thumb--sm\">
+            <img src=\"assets/img/avant-apres/papier-avant.jpg\" alt=\"Aperçu : tirage papier avant restauration\" width=\"240\" height=\"150\" loading=\"lazy\" decoding=\"async\">
+          </div>
+          \2>Quand les négatifs sont absents, le tirage papier devient la source. Amélioration prudente et fidèle.</p>
           <ul class="mini-list">
             <li>Taches / plis / déchirures</li>
             <li>Recadrage et équilibrage</li>
@@ -134,8 +142,11 @@
         </article>
 
         <article class="card">
-          <h3>Diapositives</h3>
-          <p>Supports couleur sensibles (poussières, traces, moisissures possibles). Capture HD + correction.</p>
+          \1
+          <div class=\"thumb thumb--sm\">
+            <img src=\"assets/img/services/numerisation-diapositive.jpg\" alt=\"Aperçu : numérisation de diapositives\" width=\"240\" height=\"150\" loading=\"lazy\" decoding=\"async\">
+          </div>
+          \2>Supports couleur sensibles (poussières, traces, moisissures possibles). Capture HD + correction.</p>
           <ul class="mini-list">
             <li>Nettoyage prudent</li>
             <li>Rayures / poussières</li>
@@ -179,7 +190,7 @@
           <li>+ 1 photo d’exemple (smartphone)</li>
         </ul>
         <a class="btn btn--cta btn--block" href="contact.html">Envoyer une photo</a>
-        <p class="micro">Vous préférez regarder d’abord ? <a class="text-link" href="avant-apres.html">Avant / Après</a></p>
+        <p class="micro">Vous préférez regarder d’abord ? <a class="text-link" href="avant-apres.html">Avant/Après</a></p>
       </aside>
     </section>
 
@@ -205,7 +216,7 @@
         <p class="footer__title">Navigation</p>
         <ul class="footer__links">
           <li><a href="index.html">Accueil</a></li>
-          <li><a href="avant-apres.html">Avant / Après</a></li>
+          <li><a href="avant-apres.html">Avant/Après</a></li>
           <li><a href="methode.html">Méthode</a></li>
           <li><a href="articles/index.html">Articles</a></li>
           <li><a href="contact.html">Contact</a></li>

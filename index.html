@@ -85,15 +85,15 @@
 
   <header class="site-header" data-header>
     <div class="site-header__inner">
-      <div class="brand">
-        <a class="brand__mark" href="index.html" aria-label="Accueil Incidence (Patrimoine Photos)">
-          <img class="brand__logo" src="assets/img/logo-incidence.jpg" alt="Logo Incidence" width="34" height="34" decoding="async">
-          <span class="brand__text">
-            <span class="brand__title">Incidence</span>
-            <span class="brand__sub">Patrimoine Photos • Restauration & numérisation d’archives</span>
-          </span>
-        </a>
-      </div>
+      <a class="brand" href="index.html" aria-label="Accueil Incidence (Patrimoine Photos)">
+        <span class="brand__logo-wrap" aria-hidden="true">
+          <img class="brand__logo" src="assets/img/logo-incidence.jpg" alt="" width="40" height="40" decoding="async">
+        </span>
+        <span class="brand__text">
+          <span class="brand__title">Incidence</span>
+          <span class="brand__sub">Patrimoine Photos • Restauration &amp; numérisation d’archives</span>
+        </span>
+      </a>
 
       <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav">
         <span class="sr-only">Ouvrir le menu</span>
@@ -101,10 +101,10 @@
       </button>
 
       <nav id="nav" class="nav" aria-label="Navigation principale" data-nav>
-        <div class="nav__group">
+        <div class="nav__main">
           <a class="nav__link" href="index.html">Accueil</a>
           <a class="nav__link" href="prestations.html">Prestations</a>
-          <a class="nav__link" href="avant-apres.html">Avant / Après</a>
+          <a class="nav__link" href="avant-apres.html">Avant/Après</a>
           <a class="nav__link" href="methode.html">Méthode</a>
           <a class="nav__link" href="articles/index.html">Articles</a>
           <a class="nav__link" href="youtube.html">YouTube</a>
@@ -113,63 +113,63 @@
 
         <div class="nav__divider" role="presentation"></div>
 
-        <div class="nav__group">
+        <div class="nav__meta">
           <a class="nav__link nav__link--ext" href="https://patrimoine-photos.myportfolio.com/" target="_blank" rel="noopener">Galerie</a>
           <a class="nav__link nav__link--ext" href="#" data-youtube-link target="_blank" rel="noopener">Chaîne</a>
-          <a class="btn btn--cta" href="contact.html">Demander un devis</a>
+          <a class="btn btn--cta nav__cta" href="contact.html">Demander un devis</a>
         </div>
       </nav>
+
+      <a class="btn btn--cta header-cta" href="contact.html">Demander un devis</a>
     </div>
   </header>
 
   <main id="contenu" class="site-main">
     <section class="hero reveal">
       <div class="hero__inner">
-        <p class="kicker">Restauration photo ancienne • Numérisation haute définition</p>
-        <h1 class="hero__title">Préserver vos archives familiales — avec un rendu naturel.</h1>
-        <p class="hero__lead">
-          Plaques de verre, négatifs, diapositives, tirages papier : nous numérisons et restaurons vos images anciennes
-          (rayures, poussières, taches, fissures, contraste) avec une retouche sobre, fidèle à l’original.
-        </p>
+        <div class="hero__copy">
+          <p class="kicker">Restauration photo ancienne • Numérisation haute définition</p>
+          <h1 class="hero__title">Préserver vos archives familiales — avec un rendu naturel.</h1>
+          <p class="hero__lead">
+            Plaques de verre, négatifs, diapositives, tirages papier : nous numérisons et restaurons vos images anciennes
+            (rayures, poussières, taches, fissures, contraste) avec une retouche sobre, fidèle à l’original.
+          </p>
 
-        <div class="hero__cta">
-          <a class="btn btn--cta" href="contact.html">Envoyer une photo pour avis</a>
-          <a class="btn btn--ghost" href="avant-apres.html">Voir des avant / après</a>
+          <div class="hero__cta">
+            <a class="btn btn--cta" href="contact.html">Envoyer une photo pour avis</a>
+            <a class="btn btn--ghost" href="avant-apres.html">Voir des avant/après</a>
+          </div>
+
+          <ul class="bullets">
+            <li>Devis gratuit • Objectif : réponse sous <strong>48h ouvrées</strong></li>
+            <li>Travail à distance (France) • Conseils d’emballage si envoi</li>
+            <li>Confidentialité : aucune publication sans accord</li>
+          </ul>
         </div>
 
-        <ul class="bullets">
-          <li>Devis gratuit • Objectif : réponse sous <strong>48h ouvrées</strong></li>
-          <li>Travail à distance (France) • Conseils d’emballage si envoi</li>
-          <li>Confidentialité : aucune publication sans accord</li>
-        </ul>
+        <aside class="hero__aside">
+          <div class="hero-mini">
+            <p class="hero-mini__title">Avant/Après — exemple</p>
+
+            <figure class="ba" data-ba>
+              <div class="ba__stage" style="--ba-ratio: 4 / 5">
+                <img class="ba__img" src="assets/img/avant-apres/negatif-souple-avant.jpg" alt="Avant restauration : négatif souple avec défauts (poussières, rayures)" width="893" height="1400" loading="lazy" decoding="async">
+                <img class="ba__img ba__img--after" src="assets/img/avant-apres/negatif-souple-apres.jpg" alt="Après restauration : négatif souple restauré avec rendu naturel" width="893" height="1400" loading="lazy" decoding="async">
+                <span class="ba__label ba__label--before">Avant</span>
+                <span class="ba__label ba__label--after">Après</span>
+              </div>
+              <label class="sr-only" for="ba-mini">Comparer avant/après</label>
+              <input id="ba-mini" class="ba__range" type="range" min="0" max="100" value="55" data-ba-range>
+            </figure>
+
+            <p class="muted">Exemple compact (le site n’est pas la galerie) — pour illustrer le procédé.</p>
+            <p><a class="btn btn--ghost" href="avant-apres.html">Voir plus d’exemples</a></p>
+          </div>
+        </aside>
       </div>
     </section>
 
     <div class="hairline" aria-hidden="true"></div>
-
-    <section class="section section--tight reveal">
-      <div class="section__head">
-        <h2>Un exemple avant / après</h2>
-        <p class="muted">Glissez le curseur pour comparer. (Exemple réel — intégré depuis vos images.)</p>
-      </div>
-
-      <figure class="ba" data-ba>
-        <div class="ba__stage">
-          <img class="ba__img" src="assets/img/avant-apres/machine-avant.jpg" alt="Avant restauration : photo ancienne avec défauts (rayures, poussières, contraste)" width="600" height="900" loading="lazy" decoding="async">
-          <img class="ba__img ba__img--after" src="assets/img/avant-apres/machine-apres.jpg" alt="Après restauration : photo ancienne restaurée avec rendu naturel" width="600" height="900" loading="lazy" decoding="async">
-          <span class="ba__label ba__label--before">Avant</span>
-          <span class="ba__label ba__label--after">Après</span>
-        </div>
-        <figcaption class="muted">Suppression des poussières / défauts + équilibre tonal (sans sur-retouche).</figcaption>
-        <label class="sr-only" for="ba-home">Comparer avant/après</label>
-        <input id="ba-home" class="ba__range" type="range" min="0" max="100" value="50" data-ba-range>
-      </figure>
-
-      <div class="section__cta">
-        <a class="btn btn--cta" href="contact.html">Demander un devis gratuit</a>
-        <a class="btn btn--ghost" href="avant-apres.html">Voir d’autres exemples</a>
-      </div>
-    </section>
 
     <section class="section reveal">
       <div class="section__head">
@@ -292,7 +292,7 @@
         <p class="footer__title">Navigation</p>
         <ul class="footer__links">
           <li><a href="prestations.html">Prestations</a></li>
-          <li><a href="avant-apres.html">Avant / Après</a></li>
+          <li><a href="avant-apres.html">Avant/Après</a></li>
           <li><a href="methode.html">Méthode</a></li>
           <li><a href="articles/index.html">Articles</a></li>
           <li><a href="contact.html">Contact</a></li>

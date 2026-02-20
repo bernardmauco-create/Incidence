@@ -53,7 +53,7 @@ function bindNav() {
   nav.addEventListener("click", (e) => {
     const a = e.target.closest("a");
     if (!a) return;
-    if (window.matchMedia("(max-width: 979px)").matches) {
+    if (window.matchMedia("(max-width: 1140px)").matches) {
       body.setAttribute("data-nav-open", "false");
       toggle.setAttribute("aria-expanded", "false");
     }

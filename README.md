@@ -33,12 +33,17 @@ Le logo Incidence est placé ici :
 
 Si vous remplacez le fichier, gardez le même nom pour éviter de modifier toutes les pages.
 
-### 3) Images Avant / Après
-Les images réelles sont attendues ici :
-- `assets/img/avant-apres/machine-avant.jpg`
-- `assets/img/avant-apres/machine-apres.jpg`
-- `assets/img/avant-apres/champ-avant.jpg`
-- `assets/img/avant-apres/champ-apres.jpg`
+### 3) Images (services + Avant/Après)
+Les images sont attendues ici :
+
+**Services**
+- `assets/img/services/numerisation-diapositive.jpg`
+
+**Avant/Après**
+- `assets/img/avant-apres/negatif-souple-avant.jpg`
+- `assets/img/avant-apres/negatif-souple-apres.jpg`
+- `assets/img/avant-apres/papier-avant.jpg`
+- `assets/img/avant-apres/papier-apres.jpg`
 
 Bonnes pratiques :
 - poids cible : < 300–500 Ko/image si possible

@@ -30,15 +30,15 @@
 
   <header class="site-header" data-header>
     <div class="site-header__inner">
-      <div class="brand">
-        <a class="brand__mark" href="index.html" aria-label="Accueil Incidence (Patrimoine Photos)">
-          <img class="brand__logo" src="assets/img/logo-incidence.jpg" alt="Logo Incidence" width="34" height="34" decoding="async">
-          <span class="brand__text">
-            <span class="brand__title">Incidence</span>
-            <span class="brand__sub">Patrimoine Photos • Restauration & numérisation d’archives</span>
-          </span>
-        </a>
-      </div>
+      <a class="brand" href="index.html" aria-label="Accueil Incidence (Patrimoine Photos)">
+        <span class="brand__logo-wrap" aria-hidden="true">
+          <img class="brand__logo" src="assets/img/logo-incidence.jpg" alt="" width="40" height="40" decoding="async">
+        </span>
+        <span class="brand__text">
+          <span class="brand__title">Incidence</span>
+          <span class="brand__sub">Patrimoine Photos • Restauration &amp; numérisation d’archives</span>
+        </span>
+      </a>
 
       <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav">
         <span class="sr-only">Ouvrir le menu</span>
@@ -46,10 +46,10 @@
       </button>
 
       <nav id="nav" class="nav" aria-label="Navigation principale" data-nav>
-        <div class="nav__group">
+        <div class="nav__main">
           <a class="nav__link" href="index.html">Accueil</a>
           <a class="nav__link" href="prestations.html">Prestations</a>
-          <a class="nav__link" href="avant-apres.html">Avant / Après</a>
+          <a class="nav__link" href="avant-apres.html">Avant/Après</a>
           <a class="nav__link" href="methode.html">Méthode</a>
           <a class="nav__link" href="articles/index.html">Articles</a>
           <a class="nav__link" href="youtube.html">YouTube</a>
@@ -58,12 +58,14 @@
 
         <div class="nav__divider" role="presentation"></div>
 
-        <div class="nav__group">
+        <div class="nav__meta">
           <a class="nav__link nav__link--ext" href="https://patrimoine-photos.myportfolio.com/" target="_blank" rel="noopener">Galerie</a>
           <a class="nav__link nav__link--ext" href="#" data-youtube-link target="_blank" rel="noopener">Chaîne</a>
-          <a class="btn btn--cta" href="contact.html">Demander un devis</a>
+          <a class="btn btn--cta nav__cta" href="contact.html">Demander un devis</a>
         </div>
       </nav>
+
+      <a class="btn btn--cta header-cta" href="contact.html">Demander un devis</a>
     </div>
   </header>
 
@@ -146,7 +148,7 @@
         <ul class="footer__links">
           <li><a href="index.html">Accueil</a></li>
           <li><a href="prestations.html">Prestations</a></li>
-          <li><a href="avant-apres.html">Avant / Après</a></li>
+          <li><a href="avant-apres.html">Avant/Après</a></li>
           <li><a href="methode.html">Méthode</a></li>
           <li><a href="articles/index.html">Articles</a></li>
         </ul>
