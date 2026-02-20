@@ -885,3 +885,59 @@ body{
 @media (prefers-reduced-motion: reduce){
   .nav{ transition:none; }
 }
+
+/* === Homepage polish: logo contrast + premium color accents === */
+.brand__logo-wrap{
+  width: 50px;
+  height: 50px;
+  border-radius: 16px;
+  border: 1px solid color-mix(in srgb, var(--accent-gold) 34%, white 66%);
+  background:
+    linear-gradient(140deg, rgba(201,163,74,.18), rgba(95,127,191,.10) 48%, rgba(127,174,106,.11));
+  box-shadow:
+    0 10px 22px rgba(21,24,27,.07),
+    inset 0 0 0 1px rgba(255,255,255,.55);
+}
+.brand__logo{
+  width: 42px;
+  height: 42px;
+  filter: saturate(1.22) contrast(1.2) brightness(1.02);
+}
+
+.hero__title .title-break{
+  display: block;
+  font-size: .72em;
+  letter-spacing: .06em;
+}
+
+.hero-mini,
+.card,
+.ba,
+.callout,
+.step,
+.faq details,
+.embed,
+.yt-card{
+  border-color: color-mix(in srgb, var(--accent-blue) 14%, rgba(21,24,27,.12));
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.55),
+    0 1px 0 rgba(21,24,27,.02);
+}
+
+.hero-mini{
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.93), rgba(255,255,255,.86));
+}
+
+.hero-mini .btn--ghost{
+  border-color: color-mix(in srgb, var(--accent-blue) 46%, white 54%);
+  background: linear-gradient(90deg, rgba(95,127,191,.08), rgba(127,174,106,.06));
+}
+.hero-mini .btn--ghost:hover{
+  border-color: color-mix(in srgb, var(--accent-blue) 68%, white 32%);
+  background: linear-gradient(90deg, rgba(95,127,191,.14), rgba(201,163,74,.12));
+}
+
+.ba__range{
+  accent-color: #5f7fbf;
+}
