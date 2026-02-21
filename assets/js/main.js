@@ -9,9 +9,6 @@
    ========================================================================== */
 
 const SITE = {
-  // Base URL (utile pour sitemap/canonicals — gardez cohérent si domaine custom)
-  baseUrl: "https://patrimoine-photos.github.io/Incidence/",
-
   // Chaîne YouTube (mettez l’URL de la chaîne)
   youtubeChannelUrl: "https://www.youtube.com/@VOTRE-CHAINE",
 

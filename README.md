@@ -19,6 +19,8 @@ Ce site est maintenant pilotable **sans coder** via `/admin`.
 
 ## /admin — Publier sans code
 
+URL du site public : `https://patrimoine-photos.github.io/Incidence/`
+
 URL : `https://patrimoine-photos.github.io/Incidence/admin/`
 
 ### Créer un article
