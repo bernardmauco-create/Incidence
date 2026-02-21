@@ -28,6 +28,7 @@ const SITE = {
   setYear();
   revealOnScroll();
   applyAccentCycle();
+  initArticleCards();
   initBeforeAfter();
   initYouTube();
 })();
@@ -193,6 +194,46 @@ function applyAccentCycle() {
     el.dataset.accent = accents[index % accents.length];
   });
 }
+
+function initArticleCards() {
+  const cards = Array.from(document.querySelectorAll("[data-article-card]"));
+  if (!cards.length) return;
+
+  const palette = [
+    { border: "rgba(201,163,74,.62)", hover: "rgba(201,163,74,.11)" },
+    { border: "rgba(181,46,46,.62)", hover: "rgba(181,46,46,.1)" },
+    { border: "rgba(52,103,193,.62)", hover: "rgba(52,103,193,.1)" },
+    { border: "rgba(53,132,96,.62)", hover: "rgba(53,132,96,.1)" },
+    { border: "rgba(114,121,132,.62)", hover: "rgba(114,121,132,.1)" },
+  ];
+
+  const shuffled = [...palette].sort(() => Math.random() - 0.5);
+
+  cards.forEach((card, index) => {
+    const accent = shuffled[index % shuffled.length];
+    const link = card.querySelector(".card__title a[href]");
+    if (!link) return;
+
+    card.style.setProperty("--article-accent", accent.border);
+    card.style.setProperty("--article-accent-soft", accent.hover);
+
+    card.tabIndex = 0;
+    card.setAttribute("role", "link");
+    card.setAttribute("aria-label", `Ouvrir l’article : ${link.textContent.trim()}`);
+
+    card.addEventListener("click", (event) => {
+      if (event.target.closest("a")) return;
+      link.click();
+    });
+
+    card.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      link.click();
+    });
+  });
+}
+
 function initBeforeAfter() {
   const components = Array.from(document.querySelectorAll("[data-ba]"));
   if (!components.length) return;
