@@ -83,6 +83,7 @@
 
       <div class="ba-grid">
         <figure class="ba" data-ba>
+          <h3 class="ba__title">Négatif souple</h3>
           <div class="ba__stage" style="--ba-ratio: 4 / 5">
             <img class="ba__img" src="assets/img/avant-apres/negatif-souple-avant.jpg" alt="Avant restauration : négatif souple (poussières, rayures, densité irrégulière)" width="893" height="1400" loading="lazy" decoding="async">
             <img class="ba__img ba__img--after" src="assets/img/avant-apres/negatif-souple-apres.jpg" alt="Après restauration : négatif souple restauré (rendu naturel, tonalité équilibrée)" width="893" height="1400" loading="lazy" decoding="async">
@@ -95,6 +96,20 @@
         </figure>
 
         <figure class="ba" data-ba>
+          <h3 class="ba__title">Plaques verre</h3>
+          <div class="ba__stage" style="--ba-ratio: 4 / 5">
+            <img class="ba__img" src="assets/img/avant-apres/machine-avant.jpg" alt="Avant restauration : plaque de verre ancienne (fissures, voile, contrastes affaiblis)" width="600" height="761" loading="lazy" decoding="async">
+            <img class="ba__img ba__img--after" src="assets/img/avant-apres/machine-apres.jpg" alt="Après restauration : plaque de verre restaurée (détails retrouvés, lisibilité renforcée)" width="600" height="761" loading="lazy" decoding="async">
+            <span class="ba__label ba__label--before">Avant</span>
+            <span class="ba__label ba__label--after">Après</span>
+          </div>
+          <figcaption class="muted">Plaques verre : atténuation des défauts, nettoyage fin et restitution des valeurs d’origine.</figcaption>
+          <label class="sr-only" for="ba2">Comparer avant/après</label>
+          <input id="ba2" class="ba__range" type="range" min="0" max="100" value="52" data-ba-range>
+        </figure>
+
+        <figure class="ba" data-ba>
+          <h3 class="ba__title">Tirage papier</h3>
           <div class="ba__stage" style="--ba-ratio: 4 / 5">
             <img class="ba__img" src="assets/img/avant-apres/papier-avant.jpg" alt="Avant restauration : tirage papier ancien (taches, manque de contraste)" width="600" height="849" loading="lazy" decoding="async">
             <img class="ba__img ba__img--after" src="assets/img/avant-apres/papier-apres.jpg" alt="Après restauration : tirage papier ancien restauré (lisibilité et tonalité améliorées)" width="645" height="944" loading="lazy" decoding="async">
@@ -102,20 +117,21 @@
             <span class="ba__label ba__label--after">Après</span>
           </div>
           <figcaption class="muted">Tirage papier : correction prudente des défauts + contraste naturel.</figcaption>
-          <label class="sr-only" for="ba2">Comparer avant/après</label>
-          <input id="ba2" class="ba__range" type="range" min="0" max="100" value="50" data-ba-range>
+          <label class="sr-only" for="ba3">Comparer avant/après</label>
+          <input id="ba3" class="ba__range" type="range" min="0" max="100" value="50" data-ba-range>
         </figure>
 
         <figure class="ba" data-ba>
+          <h3 class="ba__title">Diapositive</h3>
           <div class="ba__stage" style="--ba-ratio: 4 / 5">
-            <img class="ba__img ba__img--aged" src="assets/img/services/numerisation-diapositive.jpg" alt="Diapositive avant restauration" width="1200" height="1500" loading="lazy" decoding="async">
-            <img class="ba__img ba__img--after" src="assets/img/services/numerisation-diapositive.jpg" alt="Diapositive après restauration" width="1200" height="1500" loading="lazy" decoding="async">
+            <img class="ba__img ba__img--aged" src="assets/img/services/numerisation-diapositive-avant.png" alt="Avant restauration : diapositive couleur (dérive chromatique et poussières)" width="1200" height="1500" loading="lazy" decoding="async">
+            <img class="ba__img ba__img--after" src="assets/img/services/numerisation-diapositive-apres.jpg" alt="Après restauration : diapositive couleur restaurée (couleurs rééquilibrées, image nettoyée)" width="1200" height="1500" loading="lazy" decoding="async">
             <span class="ba__label ba__label--before">Avant</span>
             <span class="ba__label ba__label--after">Après</span>
           </div>
           <figcaption class="muted">Diapositive couleur : nettoyage, suppression des traces et rééquilibrage colorimétrique.</figcaption>
-          <label class="sr-only" for="ba3">Comparer avant/après</label>
-          <input id="ba3" class="ba__range" type="range" min="0" max="100" value="52" data-ba-range>
+          <label class="sr-only" for="ba4">Comparer avant/après</label>
+          <input id="ba4" class="ba__range" type="range" min="0" max="100" value="52" data-ba-range>
         </figure>
       </div>
 

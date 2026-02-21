@@ -644,6 +644,15 @@ code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liber
   padding: 14px;
   box-shadow: 0 1px 0 rgba(21,24,27,.02);
 }
+.ba__title{
+  margin: 0 0 10px;
+  font-family: var(--serif);
+  font-size: clamp(16px, 1.2vw, 20px);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--text) 84%, var(--gold) 16%);
+}
 .ba__stage{
   position: relative;
   border-radius: 16px;
