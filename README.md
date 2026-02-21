@@ -1,80 +1,55 @@
 # Incidence (Patrimoine Photos) — mini-site statique GitHub Pages
 
-Objectif : mini-site vitrine **100% gratuit**, **100% statique**, optimisé **SEO + conversion** (CTA unique : *Demander un devis / Envoyer une photo pour avis*).  
-La **galerie principale** reste sur MyPortfolio : https://patrimoine-photos.myportfolio.com/
+Objectif : mini-site vitrine **100% gratuit**, **100% statique**, optimisé **SEO + conversion** (CTA principal : *Demander un devis / Envoyer une photo*).  
+Galerie principale : https://patrimoine-photos.myportfolio.com/
 
 ## Pages
-- `index.html` : accueil (premium + aéré)
+- `index.html` : accueil
 - `prestations.html` : supports & services
 - `avant-apres.html` : comparateur avant/après (slider)
 - `methode.html` : process
-- `articles/` : structure blog (SEO)
-- `youtube.html` : page chaîne + embeds légers
-- `contact.html` : formulaire Tally + email + RGPD
-- `mentions-legales.html`, `confidentialite.html`
-- `robots.txt`, `sitemap.xml`, `404.html`
+- `articles/` : blog SEO
+- `youtube.html` : chaîne + embeds vidéo
+- `contact.html` : formulaire + email + RGPD
+- `mentions-legales.html`, `confidentialite.html`, `404.html`, `sitemap.xml`, `robots.txt`
 
----
+## Configuration rapide
 
-## Configuration rapide (2 minutes)
+### 1) URLs de contact (YouTube / email)
+Éditez l’objet `SITE` dans `assets/js/main.js` :
+- `youtubeChannelUrl` : URL de la chaîne
+- `email` : email de contact
 
-### 1) Modifier les URLs (YouTube / email / Tally)
-Ouvrez `assets/js/main.js` et modifiez l’objet `SITE` :
-- `youtubeChannelUrl` : URL de votre chaîne
-- `email` : votre email
-- `tallyEmbedUrl` : URL Tally (ex: `https://tally.so/r/abc123`)
-- `myPortfolioUrl` : galerie MyPortfolio (si besoin)
+### 2) Formulaire de contact
+Le formulaire est chargé depuis l’attribut `data-tally-src` dans `contact.html` :
 
-> Note : l’iframe Tally est aussi présente dans `contact.html`.
+```html
+data-tally-src="https://tally.so/embed/..."
+```
 
-### 2) Logo
-Le logo Incidence est placé ici :
-- `assets/img/logo-incidence.jpg`
+### 3) Logo
+Logo principal : `assets/img/logo-incidence-premium.svg` (header + footer).
 
-Si vous remplacez le fichier, gardez le même nom pour éviter de modifier toutes les pages.
+### 4) Accents colorés des séparateurs
+Les accents (or, vert, bleu, rouge) sont appliqués automatiquement par `applyAccentCycle()` dans `assets/js/main.js`.
+- Sur la homepage : comportement existant conservé.
+- Sur les autres pages : les séparateurs de section alternent automatiquement.
 
-### 3) Images (services + Avant/Après)
-Les images sont attendues ici :
-
-**Services**
-- `assets/img/services/numerisation-diapositive.jpg`
-
-**Avant/Après**
-- `assets/img/avant-apres/negatif-souple-avant.jpg`
-- `assets/img/avant-apres/negatif-souple-apres.jpg`
-- `assets/img/avant-apres/papier-avant.jpg`
-- `assets/img/avant-apres/papier-apres.jpg`
+## Images à maintenir
+- `assets/img/avant-apres/` : visuels de comparaison
+- `assets/img/services/` : visuels prestations
+- `assets/img/logo-incidence-premium.svg`, `assets/img/og-image.svg`, `assets/img/favicon.svg`
 
 Bonnes pratiques :
-- poids cible : < 300–500 Ko/image si possible
-- gardez des noms sobres et descriptifs
-- n’ajoutez pas de texte dans les images
+- idéalement < 300–500 Ko/image
+- noms explicites
+- pas de texte intégré aux images
 
----
+## Ajouter un article
+1. Dupliquer un article existant dans `articles/`
+2. Renommer : `articles/mon-article.html`
+3. Ajouter le lien dans `articles/index.html`
+4. Ajouter l’URL dans `sitemap.xml`
 
-## Ajouter un article (blog SEO)
-1. Dupliquez un template existant dans `articles/`.
-2. Renommez-le avec un slug : `articles/mon-nouvel-article.html`
-3. Ajoutez-le à la liste dans `articles/index.html`.
-4. Ajoutez l’URL dans `sitemap.xml`.
-
-Conseils :
-- 1 seul `H1` par page
-- `H2/H3` structurés
-- texte utile, pas de gros pavés
-- maillage : liens vers `contact.html`, `prestations.html`, `avant-apres.html`
-
----
-
-## Remplacer Tally
-Dans `contact.html`, remplacez :
-```html
-data-tally-src="https://tally.so/embed/81Kr1l?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-```
-avec l’URL de votre formulaire Tally.
-
----
-
-## Déploiement (100% en ligne)
-- Tout se fait depuis l’éditeur web GitHub.
-- GitHub Pages : branche `main` / dossier `/ (root)`.
+## Déploiement
+GitHub Pages : branche `main`, dossier `/ (root)`.

@@ -5,15 +5,12 @@
    - Reveal animations (IntersectionObserver)
    - Before/After slider
    - YouTube embeds "légers" (chargement au clic)
-   - Config centralisée : changez ici vos URLs (MyPortfolio / YouTube / Email / Tally)
+   - Config centralisée : changez ici vos URLs (YouTube / Email)
    ========================================================================== */
 
 const SITE = {
   // Base URL (utile pour sitemap/canonicals — gardez cohérent si domaine custom)
   baseUrl: "https://bernardmauco-create.github.io/Incidence/",
-
-  // Galerie à conserver
-  myPortfolioUrl: "https://patrimoine-photos.myportfolio.com/",
 
   // Chaîne YouTube (mettez l’URL de la chaîne)
   youtubeChannelUrl: "https://www.youtube.com/@VOTRE-CHAINE",
@@ -21,8 +18,6 @@ const SITE = {
   // Email de contact
   email: "incidence.image@gmail.com",
 
-  // Contact — Tally (embed standard)
-  tallyEmbedUrl: "https://tally.so/embed/81Kr1l?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
 };
 
 (function init() {
@@ -186,7 +181,13 @@ function revealOnScroll() {
 
 function applyAccentCycle() {
   const accents = ["gold", "green", "blue", "red"];
-  const nodes = Array.from(document.querySelectorAll(".kicker[data-accent-cycle], .hairline, .eyebrow-mark[data-accent-cycle]"));
+  const selectors = [".kicker[data-accent-cycle]", ".hairline", ".eyebrow-mark[data-accent-cycle]"];
+
+  if (document.body.dataset.page !== "home") {
+    selectors.push(".section__head");
+  }
+
+  const nodes = Array.from(document.querySelectorAll(selectors.join(", ")));
   nodes.forEach((el, index) => {
     if (el.dataset.accent) return;
     el.dataset.accent = accents[index % accents.length];
