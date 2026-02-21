@@ -253,7 +253,7 @@ code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liber
     position: fixed;
     inset: 78px 12px auto 12px;
     display:block;
-    background: linear-gradient(180deg, rgba(95,127,191,.12), rgba(255,255,255,.96));
+    background: #eaf4ff;
     border: 1px solid rgba(21,24,27,.14);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
