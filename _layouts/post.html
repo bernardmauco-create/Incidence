@@ -1,18 +1,16 @@
----
----
 <!doctype html>
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>YouTube | Avant/après & conseils de restauration photo | Incidence</title>
-  <meta name="description" content="Vidéos : méthodes, démonstrations avant/après, conseils de conservation (plaques de verre, négatifs, diapositives, tirages papier anciens). Accès direct à la chaîne." />
-  <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}/youtube.html" />
+  <title>{{ page.title }} | Incidence</title>
+  <meta name="description" content="{{ page.description | escape }}" />
+  <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
 
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="YouTube | Restauration photo ancienne | Incidence" />
-  <meta property="og:description" content="Vidéos : méthodes, avant/après, conseils de conservation." />
-  <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}/youtube.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="{{ page.title | escape }}" />
+  <meta property="og:description" content="{{ page.description | escape }}" />
+  <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
   <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/assets/img/og-image.svg" />
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -65,46 +63,11 @@
   </header>
 
   <main id="contenu" class="site-main">
-    <section class="page-head reveal">
-      <p class="kicker" data-accent-cycle data-accent="gray">YouTube</p>
-      <h1 class="page-title">Vidéos : méthode, avant/après, conseils</h1>
-      <p class="page-lead">
-        Une vidéo vaut souvent mieux qu’un long texte : démonstrations, coulisses, conseils de conservation.
-        Les embeds ci-dessous sont “légers” : la vidéo se charge uniquement au clic.
-      </p>
-      <div class="page-cta">
-        <a class="btn btn--cta" href="#" data-youtube-link target="_blank" rel="noopener">Ouvrir la chaîne</a>
-        <a class="btn btn--ghost" href="{{ '/contact.html' | relative_url }}">Envoyer une photo</a>
-      </div>
-    </section>
-
-    <section class="section reveal">
-      <div class="section__head">
-        <h2>Vidéos à la une</h2>
-        <p class="muted">Gérez cette liste dans l’admin sans modifier le code.</p>
-      </div>
-
-      <div class="yt-grid">
-        {% for video in site.data.youtube.videos %}
-        <article class="yt-card">
-          <h3>{{ video.title }}</h3>
-          <div class="yt" data-youtube="{{ video.id }}" role="group" aria-label="Lecteur YouTube (chargement au clic)">
-            <button class="yt__btn" type="button">
-              <span class="yt__play" aria-hidden="true"></span>
-              <span class="sr-only">Lire la vidéo</span>
-            </button>
-            <p class="yt__hint">Cliquez pour charger</p>
-          </div>
-          <p class="muted">{{ video.description }}</p>
-        </article>
-        {% endfor %}
-      </div>
-
-      <div class="section__cta">
-        <a class="btn btn--cta" href="{{ '/contact.html' | relative_url }}">Demander un devis</a>
-        <a class="btn btn--ghost" href="{{ '/articles/' | relative_url }}">Lire les articles</a>
-      </div>
-    </section>
+    <article class="prose reveal">
+      <p class="breadcrumb"><a class="text-link" href="{{ '/articles/' | relative_url }}">Articles</a> → {{ page.breadcrumb | default: page.title }}</p>
+      <h1>{{ page.title }}</h1>
+      {{ content }}
+    </article>
   </main>
 
   <footer class="site-footer">
@@ -121,9 +84,8 @@
         <p class="footer__title">Navigation</p>
         <ul class="footer__links">
           <li><a href="{{ '/index.html' | relative_url }}">Accueil</a></li>
-          <li><a href="{{ '/prestations.html' | relative_url }}">Prestations</a></li>
-          <li><a href="{{ '/avant-apres.html' | relative_url }}">Avant/Après</a></li>
           <li><a href="{{ '/contact.html' | relative_url }}">Contact</a></li>
+          <li><a href="{{ '/prestations.html' | relative_url }}">Prestations</a></li>
         </ul>
       </div>
       <div>
@@ -134,7 +96,7 @@
         </ul>
       </div>
       <div class="footer__cta">
-        <a class="btn btn--cta btn--block" href="{{ '/contact.html' | relative_url }}">Envoyer une photo</a>
+        <a class="btn btn--cta btn--block" href="{{ '/contact.html' | relative_url }}">Demander un devis</a>
         <p class="micro">© <span data-year></span></p>
       </div>
     </div>

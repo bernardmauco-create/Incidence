@@ -1,0 +1,7 @@
+title: Incidence
+url: "https://bernardmauco-create.github.io"
+baseurl: "/Incidence" # Mettre "" si vous utilisez un domaine custom racine.
+plugins:
+  - jekyll-sitemap
+permalink: /articles/:title.html
+markdown: kramdown

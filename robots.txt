@@ -1,4 +1,7 @@
+---
+---
 User-agent: *
 Allow: /
+Disallow: /admin/
 
-Sitemap: https://bernardmauco-create.github.io/Incidence/sitemap.xml
+Sitemap: {{ site.url }}{{ site.baseurl }}/sitemap.xml
