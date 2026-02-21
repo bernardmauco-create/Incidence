@@ -1,8 +1,8 @@
 backend:
   name: github
-  repo: OWNER/REPO # A RENSEIGNER (ex: bernardmauco-create/Incidence)
+  repo: patrimoine-photos/Incidence
   branch: main
-  base_url: https://sveltia-cms-auth.<SUBDOMAIN>.workers.dev # A RENSEIGNER
+  base_url: https://sveltia-cms-auth.bernardmauco.workers.dev
 
 media_folder: "assets/img/uploads"
 public_folder: "/assets/img/uploads"

@@ -19,7 +19,7 @@ Ce site est maintenant pilotable **sans coder** via `/admin`.
 
 ## /admin — Publier sans code
 
-URL : `https://<votre-domaine>/admin/`
+URL : `https://patrimoine-photos.github.io/Incidence/admin/`
 
 ### Créer un article
 1. Ouvrir `/admin` et se connecter avec GitHub.
@@ -78,13 +78,13 @@ Decap CMS avec backend GitHub nécessite un proxy OAuth externe.
 - Repo : `sveltia/sveltia-cms-auth`
 - Déployer sur Cloudflare Workers
 - URL obtenue (exemple) :
-  `https://sveltia-cms-auth.<SUBDOMAIN>.workers.dev`
+  `https://sveltia-cms-auth.bernardmauco.workers.dev`
 
 ### 2) Créer une OAuth App GitHub
 Dans GitHub > Settings > Developer settings > OAuth Apps :
 - Homepage URL : URL publique de votre site
 - Authorization callback URL :
-  `https://sveltia-cms-auth.<SUBDOMAIN>.workers.dev/callback`
+  `https://sveltia-cms-auth.bernardmauco.workers.dev/callback`
 
 ### 3) Configurer les variables du Worker
 Ajouter :
@@ -93,12 +93,12 @@ Ajouter :
 - `ALLOWED_DOMAINS` (liste des domaines autorisés, séparés par virgules)
 
 Exemple :
-`bernardmauco-create.github.io,incidence.fr`
+`patrimoine-photos.github.io`
 
 ### 4) Configurer le repo dans `admin/config.yml`
 Remplacer :
-- `backend.repo: OWNER/REPO`
-- `backend.base_url: https://sveltia-cms-auth.<SUBDOMAIN>.workers.dev`
+- `backend.repo: patrimoine-photos/Incidence`
+- `backend.base_url: https://sveltia-cms-auth.bernardmauco.workers.dev`
 
 Puis commit + deploy.
 
@@ -157,3 +157,9 @@ Modifier `url` et éventuellement `baseurl` dans `_config.yml`.
 - **Ne pas** créer `.nojekyll`
 
 Après merge sur `main`, GitHub Pages reconstruit le site.
+
+## Test final
+
+- Ouvrir `https://patrimoine-photos.github.io/Incidence/admin/` → **Login GitHub** → retour sur `/admin`.
+- Créer un article depuis `/admin`, publier, puis vérifier son apparition sur `https://patrimoine-photos.github.io/Incidence/articles/`.
+- Éditer la collection **YouTube** depuis `/admin`, publier, puis vérifier `https://patrimoine-photos.github.io/Incidence/youtube.html`.
