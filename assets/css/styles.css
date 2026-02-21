@@ -490,6 +490,23 @@ code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liber
 .card__title a{ text-decoration:none; }
 .card__title a:hover{ color: var(--text); }
 
+.article-card{
+  --article-accent: rgba(201,163,74,.45);
+  --article-accent-soft: rgba(201,163,74,.08);
+  border-color: var(--article-accent);
+  cursor: pointer;
+}
+.article-card:hover,
+.article-card:focus-visible{
+  border-color: var(--article-accent);
+  background: var(--article-accent-soft);
+  box-shadow: var(--shadow2);
+}
+.article-card:focus-visible{
+  outline: 2px solid var(--article-accent);
+  outline-offset: 2px;
+}
+
 /* Split */
 .section--split{ display:grid; gap: 18px; }
 @media (min-width: 920px){
