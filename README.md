@@ -139,6 +139,10 @@ Modifier `url` et éventuellement `baseurl` dans `_config.yml`.
 - Vérifier la 2FA activée
 - Refaire l’auth si token expiré
 
+### Dépannage YouTube – Erreur 153
+- **Cause** : la configuration `iframe.referrerPolicy = "no-referrer"` dans le lazy embed peut bloquer la lecture et déclencher l’Erreur 153 côté player YouTube.
+- **Fix** : utiliser `iframe.referrerPolicy = "strict-origin-when-cross-origin"` (en conservant l’URL `youtube-nocookie`) pour laisser un referrer compatible.
+
 ---
 
 ## Sécurité (indispensable)

@@ -270,7 +270,8 @@ function initYouTube() {
       iframe.allow =
         "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
       iframe.allowFullscreen = true;
-      iframe.referrerPolicy = "no-referrer";
+      // YouTube can return Error 153 when no referrer is sent.
+      iframe.referrerPolicy = "strict-origin-when-cross-origin";
 
       // "nocookie" for privacy
       iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1`;
