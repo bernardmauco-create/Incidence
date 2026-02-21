@@ -21,15 +21,15 @@ const SITE = {
   // Email de contact
   email: "incidence.image@gmail.com",
 
-  // Contact — Tally : remplacez XXXX par votre ID (ex: https://tally.so/r/abc123)
-  // NOTE : l’iframe est aussi directement dans contact.html (vous pouvez mettre la vraie URL au même endroit).
-  tallyEmbedUrl: "https://tally.so/r/XXXXXX"
+  // Contact — Tally (embed standard)
+  tallyEmbedUrl: "https://tally.so/embed/81Kr1l?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
 };
 
 (function init() {
   bindNav();
   setActiveNav();
   hydrateLinks();
+  initTallyEmbeds();
   setYear();
   revealOnScroll();
   applyAccentCycle();
@@ -116,6 +116,46 @@ function hydrateLinks() {
   // (You can add data-myportfolio on elements if you want to hydrate them too.)
 }
 
+
+function initTallyEmbeds() {
+  const iframes = document.querySelectorAll("iframe[data-tally-src]");
+  if (!iframes.length) return;
+
+  const widgetScriptSrc = "https://tally.so/widgets/embed.js";
+
+  const load = () => {
+    if (typeof Tally !== "undefined") {
+      Tally.loadEmbeds();
+      return;
+    }
+
+    document
+      .querySelectorAll("iframe[data-tally-src]:not([src])")
+      .forEach((iframeEl) => {
+        iframeEl.src = iframeEl.dataset.tallySrc;
+      });
+  };
+
+  if (typeof Tally !== "undefined") {
+    load();
+    return;
+  }
+
+  const existing = document.querySelector(`script[src="${widgetScriptSrc}"]`);
+  if (existing) {
+    existing.addEventListener("load", load, { once: true });
+    existing.addEventListener("error", load, { once: true });
+    load();
+    return;
+  }
+
+  const script = document.createElement("script");
+  script.src = widgetScriptSrc;
+  script.async = true;
+  script.onload = load;
+  script.onerror = load;
+  document.body.appendChild(script);
+}
 function setYear() {
   const y = document.querySelector("[data-year]");
   if (y) y.textContent = String(new Date().getFullYear());

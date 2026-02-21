@@ -69,9 +69,9 @@ Conseils :
 ## Remplacer Tally
 Dans `contact.html`, remplacez :
 ```html
-src="https://tally.so/r/XXXXXX"
+data-tally-src="https://tally.so/embed/81Kr1l?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
 ```
-par votre URL.
+avec l’URL de votre formulaire Tally.
 
 ---
 
