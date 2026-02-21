@@ -815,6 +815,7 @@ code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liber
   --accent-green: #7fae6a;
   --accent-blue: #5f7fbf;
   --accent-red: #d25555;
+  --accent-gray: #7a828e;
   --header-glass-gradient: linear-gradient(110deg,
     rgba(127,174,106,.18) 0%,
     rgba(201,163,74,.16) 26%,
@@ -924,11 +925,31 @@ body{
 [data-accent="green"]{ --accent-color: var(--accent-green); }
 [data-accent="blue"]{ --accent-color: var(--accent-blue); }
 [data-accent="red"]{ --accent-color: var(--accent-red); }
+[data-accent="gray"]{ --accent-color: var(--accent-gray); }
 
 .kicker[data-accent="gold"]::before{ background: var(--accent-gold); }
 .kicker[data-accent="green"]::before{ background: var(--accent-green); }
 .kicker[data-accent="blue"]::before{ background: var(--accent-blue); }
 .kicker[data-accent="red"]::before{ background: var(--accent-red); }
+.kicker[data-accent="gray"]::before{ background: var(--accent-gray); }
+
+.text-link--prominent{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  margin-top: 2px;
+  border: 1px solid color-mix(in srgb, var(--accent-blue) 28%, rgba(21,24,27,.22));
+  border-radius: 999px;
+  background: linear-gradient(120deg, rgba(95,127,191,.14), rgba(201,163,74,.16));
+  font-size: 13px;
+  font-weight: 500;
+}
+.text-link--prominent::after{
+  content: "→";
+  font-size: .95em;
+  opacity: .86;
+}
 
 .section__head h2::after{ background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent-color, var(--accent-gold)) 65%, white 35%), transparent); }
 
