@@ -1,55 +1,159 @@
-# Incidence (Patrimoine Photos) — mini-site statique GitHub Pages
+# Incidence (Patrimoine Photos) — site GitHub Pages + Jekyll + Decap CMS
 
-Objectif : mini-site vitrine **100% gratuit**, **100% statique**, optimisé **SEO + conversion** (CTA principal : *Demander un devis / Envoyer une photo*).  
-Galerie principale : https://patrimoine-photos.myportfolio.com/
+Ce site est maintenant pilotable **sans coder** via `/admin`.
 
-## Pages
-- `index.html` : accueil
-- `prestations.html` : supports & services
-- `avant-apres.html` : comparateur avant/après (slider)
-- `methode.html` : process
-- `articles/` : blog SEO
-- `youtube.html` : chaîne + embeds vidéo
-- `contact.html` : formulaire + email + RGPD
-- `mentions-legales.html`, `confidentialite.html`, `404.html`, `sitemap.xml`, `robots.txt`
+- Articles : gérés dans `/_posts` (Markdown)
+- Vidéos YouTube : gérées dans `/_data/youtube.yml`
+- Sitemap : généré automatiquement par Jekyll
 
-## Configuration rapide
+## Structure
 
-### 1) URLs de contact (YouTube / email)
-Éditez l’objet `SITE` dans `assets/js/main.js` :
-- `youtubeChannelUrl` : URL de la chaîne
-- `email` : email de contact
+- `articles/index.html` : listing automatique des articles (hors archivés)
+- `_layouts/post.html` : gabarit premium des articles
+- `_posts/*.md` : articles éditables depuis l’admin
+- `youtube.html` : page YouTube alimentée automatiquement par `_data/youtube.yml`
+- `admin/index.html` + `admin/config.yml` : interface Decap CMS
+- `robots.txt` : bloque l’indexation de `/admin/`
 
-### 2) Formulaire de contact
-Le formulaire est chargé depuis l’attribut `data-tally-src` dans `contact.html` :
+---
 
-```html
-data-tally-src="https://tally.so/embed/..."
-```
+## /admin — Publier sans code
 
-### 3) Logo
-Logo principal : `assets/img/logo-incidence-premium.svg` (header + footer).
+URL : `https://<votre-domaine>/admin/`
 
-### 4) Accents colorés des séparateurs
-Les accents (or, vert, bleu, rouge) sont appliqués automatiquement par `applyAccentCycle()` dans `assets/js/main.js`.
-- Sur la homepage : comportement existant conservé.
-- Sur les autres pages : les séparateurs de section alternent automatiquement.
+### Créer un article
+1. Ouvrir `/admin` et se connecter avec GitHub.
+2. Collection **Articles** → **New Article**.
+3. Remplir : titre, description, date, contenu.
+4. Laisser **Archiver** décoché pour publier normalement.
+5. Enregistrer et publier.
 
-## Images à maintenir
-- `assets/img/avant-apres/` : visuels de comparaison
-- `assets/img/services/` : visuels prestations
-- `assets/img/logo-incidence-premium.svg`, `assets/img/og-image.svg`, `assets/img/favicon.svg`
+### Modifier un article
+1. Ouvrir **Articles**.
+2. Sélectionner l’article.
+3. Modifier le contenu puis publier.
 
-Bonnes pratiques :
-- idéalement < 300–500 Ko/image
-- noms explicites
-- pas de texte intégré aux images
+### Archiver un article (recommandé)
+1. Ouvrir l’article.
+2. Cocher **Archiver** (`archived: true`).
+3. Publier.
 
-## Ajouter un article
-1. Dupliquer un article existant dans `articles/`
-2. Renommer : `articles/mon-article.html`
-3. Ajouter le lien dans `articles/index.html`
-4. Ajouter l’URL dans `sitemap.xml`
+**Effet :**
+- l’article disparaît de `/articles/`
+- son URL reste accessible (pas de 404)
 
-## Déploiement
-GitHub Pages : branche `main`, dossier `/ (root)`.
+👉 C’est le mode recommandé pour “retirer” un contenu sans casser le SEO.
+
+### Supprimer un article (à éviter sauf nécessité)
+- Utiliser **Delete** dans l’éditeur.
+- Le fichier est supprimé dans `/_posts`.
+- L’URL de l’article renverra ensuite **404**.
+
+**Impact SEO après suppression :**
+- retirer/mettre à jour les liens internes vers l’ancienne URL
+- demander une désindexation dans Google Search Console (si besoin)
+- envisager une redirection (si vous mettez en place une logique de redirections)
+
+---
+
+## Gérer les vidéos YouTube dans /admin
+
+1. Ouvrir collection **YouTube**.
+2. Modifier la liste **Vidéos**.
+3. Pour chaque entrée :
+   - `title` : titre affiché
+   - `id` : ID YouTube (ex: `dQw4w9WgXcQ`)
+   - `description` : texte sous la vidéo
+4. Publier.
+
+La page `/youtube.html` se met à jour automatiquement depuis `_data/youtube.yml`.
+
+---
+
+## Installer l’auth OAuth (Cloudflare Workers + sveltia-cms-auth)
+
+Decap CMS avec backend GitHub nécessite un proxy OAuth externe.
+
+### 1) Déployer le worker `sveltia-cms-auth`
+- Repo : `sveltia/sveltia-cms-auth`
+- Déployer sur Cloudflare Workers
+- URL obtenue (exemple) :
+  `https://sveltia-cms-auth.<SUBDOMAIN>.workers.dev`
+
+### 2) Créer une OAuth App GitHub
+Dans GitHub > Settings > Developer settings > OAuth Apps :
+- Homepage URL : URL publique de votre site
+- Authorization callback URL :
+  `https://sveltia-cms-auth.<SUBDOMAIN>.workers.dev/callback`
+
+### 3) Configurer les variables du Worker
+Ajouter :
+- `GITHUB_CLIENT_ID`
+- `GITHUB_CLIENT_SECRET`
+- `ALLOWED_DOMAINS` (liste des domaines autorisés, séparés par virgules)
+
+Exemple :
+`bernardmauco-create.github.io,incidence.fr`
+
+### 4) Configurer le repo dans `admin/config.yml`
+Remplacer :
+- `backend.repo: OWNER/REPO`
+- `backend.base_url: https://sveltia-cms-auth.<SUBDOMAIN>.workers.dev`
+
+Puis commit + deploy.
+
+---
+
+## SEO simplifié
+
+- Base URL centralisée dans `_config.yml` :
+  - `url`
+  - `baseurl`
+- Canonical automatisé sur les articles et pages migrées Liquid
+- Sitemap généré automatiquement (`jekyll-sitemap`)
+- `robots.txt` inclut :
+  - `Disallow: /admin/`
+  - `Sitemap: {{ site.url }}{{ site.baseurl }}/sitemap.xml`
+
+### Changement de domaine = 1 modif principale
+Modifier `url` et éventuellement `baseurl` dans `_config.yml`.
+
+---
+
+## Dépannage
+
+### Login /admin impossible
+- Vérifier `backend.base_url` dans `admin/config.yml`
+- Vérifier le callback OAuth GitHub (`<WORKER_URL>/callback`)
+- Vérifier que le domaine du site est présent dans `ALLOWED_DOMAINS`
+
+### Domain mismatch
+- Domaine courant absent de `ALLOWED_DOMAINS`
+- Ajouter aussi le domaine GitHub Pages (`*.github.io`) si utilisé
+
+### Pas de droits d’écriture
+- Le compte GitHub connecté n’a pas les droits sur le repo
+- Vérifier accès collaborateur / organisation
+
+### Blocage lié à la sécurité GitHub
+- Vérifier la 2FA activée
+- Refaire l’auth si token expiré
+
+---
+
+## Sécurité (indispensable)
+
+- Activer la **2FA** sur les comptes GitHub ayant accès au repo
+- Limiter l’accès repo au strict nécessaire
+- Conserver `/admin` public mais protégé par authentification GitHub
+- Ne jamais exposer `GITHUB_CLIENT_SECRET` hors des secrets Worker
+
+---
+
+## Déploiement GitHub Pages
+
+- Branche : `main`
+- Dossier : `/ (root)`
+- **Ne pas** créer `.nojekyll`
+
+Après merge sur `main`, GitHub Pages reconstruit le site.
