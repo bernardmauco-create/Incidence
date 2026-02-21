@@ -425,6 +425,26 @@ code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liber
 }
 .bullets li{ margin: 6px 0; }
 
+.bullets--compact{
+  font-size: 13.5px;
+  color: rgba(21,24,27,.7);
+}
+
+.img-note{
+  margin: 8px 0 0;
+  font-size: 12.5px;
+  color: rgba(95,102,112,.9);
+}
+
+.thumb{ max-width: 300px; }
+.thumb--sm{ max-width: 220px; }
+.thumb--md{ max-width: 260px; }
+
+.ba__img--aged{
+  filter: sepia(.24) saturate(.72) contrast(.78) brightness(.84);
+}
+
+
 /* Links */
 .text-link{
   color: rgba(21,24,27,.85);
@@ -614,6 +634,32 @@ code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liber
 .reveal.is-visible{ opacity: 1; transform: translateY(0); }
 
 /* Before/After component */
+
+.ba-technique{
+  display:flex;
+  flex-direction:column;
+  gap: 8px;
+}
+
+.ba-technique__title{
+  margin: 0;
+  font-family: var(--serif);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: 14px;
+  color: rgba(21,24,27,.78);
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+
+.ba-technique__title::before{
+  content:"";
+  width: 18px;
+  height: 1px;
+  background: color-mix(in srgb, var(--accent-gold) 70%, white 30%);
+}
+
 .ba-grid{ display:grid; gap: 18px; grid-template-columns: 1fr; }
 @media (min-width: 900px){ .ba-grid{ grid-template-columns: 1fr 1fr; } }
 .ba{

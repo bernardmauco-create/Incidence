@@ -37,7 +37,7 @@ Si vous remplacez le fichier, gardez le même nom pour éviter de modifier toute
 Les images sont attendues ici :
 
 **Services**
-- `assets/img/services/numerisation-diapositive.jpg`
+- `assets/img/placeholder-apres.svg`
 
 **Avant/Après**
 - `assets/img/avant-apres/negatif-souple-avant.jpg`
