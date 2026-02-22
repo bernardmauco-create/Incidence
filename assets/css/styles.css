@@ -689,6 +689,12 @@ code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liber
 .ba__stage--aa-negatif{ --ba-ratio: 893 / 1400; }
 .ba__stage--aa-verre{ --ba-ratio: 600 / 761; }
 .ba__stage--aa-papier{ --ba-ratio: 645 / 944; }
+
+/* Backward-compatible aliases kept to simplify conflict resolution with main */
+.ba__stage--mobile-tall-home{ --ba-ratio: 893 / 1400; }
+.ba__stage--mobile-tall-aa.ba__stage--aa-negatif{ --ba-ratio: 893 / 1400; }
+.ba__stage--mobile-tall-aa.ba__stage--aa-verre{ --ba-ratio: 600 / 761; }
+.ba__stage--mobile-tall-aa.ba__stage--aa-papier{ --ba-ratio: 645 / 944; }
 .ba__label{
   position:absolute;
   top: 10px;
@@ -704,9 +710,11 @@ code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liber
 
 @media (max-width: 680px){
   .ba__stage--home-example{ --ba-ratio: 4 / 4.25; }
+  .ba__stage--mobile-tall-home{ --ba-ratio: 4 / 4.25; }
   .ba__stage--aa-negatif,
   .ba__stage--aa-verre,
   .ba__stage--aa-papier{ --ba-ratio: 8 / 8.1; }
+  .ba__stage--mobile-tall-aa{ --ba-ratio: 8 / 8.1; }
 }
 
 /* Media thumbnails */
