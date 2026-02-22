@@ -697,6 +697,11 @@ code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liber
 .ba__label--after{ right: 10px; }
 .ba__range{ width: 100%; margin-top: 12px; accent-color: var(--gold); }
 
+@media (max-width: 680px){
+  .ba__stage--mobile-tall-home{ --ba-ratio: 4 / 4.25; }
+  .ba__stage--mobile-tall-aa{ --ba-ratio: 8 / 8.1; }
+}
+
 /* Media thumbnails */
 .thumb{
   width: 100%;
