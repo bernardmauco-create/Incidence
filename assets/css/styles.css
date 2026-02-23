@@ -32,8 +32,10 @@
 
   --blue-glass: rgba(95,127,191,.12);
 
-  --serif: "Futura PT", "Futura", "Trebuchet MS", Arial, sans-serif;
-  --sans: "Futura PT", "Futura", "Trebuchet MS", Arial, sans-serif;
+  /* Futura PT locale peut mal gérer certains glyphes accentués selon l'OS.
+     On privilégie une pile sans-serif stable pour un rendu homogène du français. */
+  --serif: "Avenir Next", "Avenir", "Segoe UI", "Trebuchet MS", Arial, sans-serif;
+  --sans: "Avenir Next", "Avenir", "Segoe UI", "Trebuchet MS", Arial, sans-serif;
 }
 
 *{ box-sizing:border-box; }
