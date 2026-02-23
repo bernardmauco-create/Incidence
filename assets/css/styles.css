@@ -51,6 +51,13 @@ body{
   -webkit-font-smoothing: antialiased;
 }
 
+button,
+input,
+select,
+textarea{
+  font-family: var(--sans);
+}
+
 img{ max-width:100%; height:auto; display:block; }
 a{ color: inherit; }
 code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: .95em; }
